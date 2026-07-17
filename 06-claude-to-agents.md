@@ -4,7 +4,7 @@ The good news for a skeptical team: **most Claude repo investments are plain fil
 
 ### Instruction / memory files (`CLAUDE.md` → `AGENTS.md`)
 - **Same syntax, different filename.** Both are **freeform natural-language Markdown** — no special schema. Your `CLAUDE.md` content ports **verbatim**; only the file GitHub *looks for* differs.
-- Copilot CLI reads **`AGENTS.md`** (repo root, and nested `AGENTS.md` down the tree) plus **`.github/copilot-instructions.md`**.
+- Copilot CLI reads **`AGENTS.md`** (repo root, and nested `AGENTS.md` down the tree) plus **`.github/copilot-instructions.md`**; `CLAUDE.md` is the root-level alternative, not a nested path-scoped equivalent.
 - **Keep one source of truth** — symlink instead of copy:
 ```bash
   ln -s CLAUDE.md AGENTS.md     # edits to CLAUDE.md flow to AGENTS.md automatically
@@ -27,7 +27,10 @@ The good news for a skeptical team: **most Claude repo investments are plain fil
 - **GitHub MCP is preinstalled.** Newer CLI also supports \*\*OAuth-based MCP auth, mid-session enable/disable, auto token recovery, and `/mcp list`.\*\*
 
 ### Custom commands & skills
-- `.claude/commands/*.md` and `.claude/skills/<name>/SKILL.md` → Copilot **skills** via `copilot skill add` (SKILL.md format). Your reusable/parameterized prompts carry over as skills.
+- `.claude/commands/*.md` and `.claude/skills/<name>/SKILL.md` → Copilot **skills** via `copilot skill add` (SKILL.md format). In Copilot, those live under `.github/skills` or `~/.copilot/skills`, and reusable/parameterized prompts carry over as skills.
+
+### Shared repo settings
+- Project-level `.claude/settings.json` and `.claude/settings.local.json` map to Copilot's repository settings files. The shared subset includes values such as `companyAnnouncements`, `disableAllHooks`, `enabledPlugins`, `extraKnownMarketplaces`, and `hooks`.
 
 ### Subagents
 - `.claude/agents/*` → **`.github/agents/*.md`** (Markdown + frontmatter). User-level lives in `~/.copilot/agents`, org-level in `.github-private/agents`. Newer agents can set **reasoning effort, response budget, and subagent concurrency/depth**.
