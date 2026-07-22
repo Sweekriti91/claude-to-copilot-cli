@@ -20,10 +20,13 @@
 | 🟢 | Add working directory | `claude --add-dir ../lib` | `copilot --add-dir <dir>` / `/add-dir` |
 | 🔴 | Extra system prompt | `--append-system-prompt "..."` | custom instructions (AGENTS.md / copilot-instructions.md) |
 | 🟡 | MCP config | `--mcp-config <file>` | `~/.copilot/mcp-config.json`; `copilot mcp` / `/mcp add` |
+| 🟡 | Enable experimental features | (n/a) | `copilot --experimental` / `/experimental on` |
+| 🟡 | Allow / deny URLs | (n/a) | `copilot --allow-url` / `--deny-url` |
+| 🟡 | Local sandbox toggle | (n/a) | `copilot --sandbox` / `--no-sandbox` |
 | 🟢 | Cloud / web session | `claude --cloud "task"` | `copilot --cloud` |
 | 🟢 | Update | `claude update` | `copilot update` |
 | 🟡 | Version | `claude --version` | `copilot version` |
 
-**Autonomy spectrum:** Claude `plan` → default → `--dangerously-skip-permissions` ≈ Copilot plan → autopilot → `--allow-all`/`--yolo` (+ sandbox).
+**Autonomy spectrum:** Claude `plan` → default → `--dangerously-skip-permissions` ≈ Copilot plan → autopilot → `--allow-all`/`--yolo` (+ sandbox, `--experimental` for fast-moving features).
 
 ---
