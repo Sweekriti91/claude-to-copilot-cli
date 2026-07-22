@@ -11,6 +11,9 @@
 | 🟡 | Repo-level agents | `.claude/agents` | `.github/agents` |
 | 🟡 | Org/enterprise agents | enterprise settings | `.github-private/agents` |
 | 🟢 | Hooks | Claude hooks | Copilot hooks |
+| 🟡 | User settings | `~/.claude/settings.json` | `~/.copilot/settings.json` |
+| 🟡 | Repo settings | `.claude/settings.json` | `.github/copilot/settings.json` |
+| 🟡 | Local repo override | `.claude/settings.local.json` | `.github/copilot/settings.local.json` |
 | 🟡 | Shared repo settings subset | `.claude/settings.json`, `.claude/settings.local.json` | `.github/copilot/settings.json`, `.github/copilot/settings.local.json` |
 | 🟡 | Home/config dir | `~/.claude`, `~/.claude.json` | `~/.copilot` (`COPILOT_HOME`) |
 | 🟢 | MCP servers | `claude mcp`, `.mcp.json` | preconfigured GitHub MCP; `~/.copilot/mcp-config.json` |

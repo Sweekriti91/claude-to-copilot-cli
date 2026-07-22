@@ -58,4 +58,63 @@ copilot -p "/settings experimental false"
 Use `/settings` to inspect the exact setting name and available individual
 flags. See the [Copilot CLI settings announcement](https://github.blog/changelog/2026-06-11-copilot-cli-configure-everything-from-one-place-with-settings/).
 
+## Generic headless setup with a dedicated settings file
+
+For CI systems or wrapper scripts, you can point Copilot at a dedicated config
+directory with `COPILOT_HOME` and place a `settings.json` there.
+
+Settings file locations:
+
+- User/global: `~/.copilot/settings.json`
+- Repo-shared: `.github/copilot/settings.json`
+- Repo-local override: `.github/copilot/settings.local.json`
+- Alternate global location: `$COPILOT_HOME/settings.json`
+
+Example `settings.json` for non-interactive runs:
+
+```json
+{
+  "model": "gpt-5.3-codex",
+  "effortLevel": "low",
+  "experimental": false,
+  "askUser": false,
+  "autoUpdate": false,
+  "logLevel": "info",
+  "allowedUrls": ["github.com", "docs.github.com"],
+  "deniedUrls": ["malicious-site.com"]
+}
+```
+
+Generic shell setup:
+
+```bash
+# 1. Create an isolated Copilot home for the script or CI job
+export COPILOT_HOME="${COPILOT_HOME:-$PWD/.copilot-headless}"
+mkdir -p "$COPILOT_HOME"
+
+# 2. Write the settings file Copilot should use
+cat > "$COPILOT_HOME/settings.json" <<'EOF'
+{
+  "model": "gpt-5.3-codex",
+  "effortLevel": "low",
+  "experimental": false,
+  "askUser": false,
+  "autoUpdate": false,
+  "logLevel": "info"
+}
+EOF
+
+# 3. Provide auth with an environment variable
+export COPILOT_GITHUB_TOKEN=github_pat_...
+
+# 4. Run Copilot in headless mode
+copilot -p "summarize the diff" \
+  --allow-tool='read,shell(git:*)' \
+  --output-format json
+```
+
+Use a dedicated `COPILOT_HOME` when you want predictable, isolated config for
+automation. Use repo settings files when you want shared defaults checked into
+the repository.
+
 ---

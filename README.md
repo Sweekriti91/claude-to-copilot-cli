@@ -20,6 +20,7 @@ A practical, side-by-side reference for engineers moving day-to-day workflows an
 6. [CLAUDE.md ↔ AGENTS.md & "will my stuff just work?"](06-claude-to-agents.md)
 7. [Official docs](07-official-docs.md)
 8. [Announcements, blogs & talks](08-announcements-and-talks.md)
+9. [Headless mode](09-headless-mode.md)
 
 ---
 *Community reference for terminal-native AI coding migrations. Not an official GitHub product doc.*
