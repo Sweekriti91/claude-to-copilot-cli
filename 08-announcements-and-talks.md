@@ -15,6 +15,12 @@
 
 *(Foundational, pre-window: Sep 25, 2025 public preview — https://github.blog/changelog/2025-09-25-github-copilot-cli-is-now-in-public-preview/)*
 
+### Recent release-stream highlights
+
+- **1.0.71** — autopilot turn timeout fix, refreshed subagent picker state, memory refresh after long sessions, live MCP tool-list refresh, canvas support, plan-mode write blocking, voice device persistence.
+- **1.0.70** — GPT-5.6 support, `/sandbox` flags, `/refine`, repo-local settings flags, `/mcp list`, `/plugin list`, and model-picker updates.
+- **1.0.69** — `/plugins`, `/mcp list`, `/plugin list`, `/worktree`, `/move`, `/rubber-duck`, and experimental auto-allow-all gating.
+
 **Feb–May gap note:** after the Feb 25 GA, Mar–May were mostly incremental releases (every few days) rather than headline posts. For the complete list, pull live:
 
 - **GitHub Changelog — Copilot label:** https://github.blog/changelog/label/copilot/
