@@ -36,4 +36,26 @@ copilot --add-dir ../shared-lib --add-dir ../protos
 copilot --cloud "implement the feature in issue #482 and open a PR"
 ```
 
+## Experimental mode in programmatic sessions
+
+`-p` does not automatically enable experimental mode; it uses your current
+persisted configuration.
+
+For a one-shot prompt:
+
+```bash
+copilot --experimental -p "your prompt"
+```
+
+`--experimental` enables experimental mode and persists that setting, so later
+sessions may remain enabled. To toggle it explicitly from programmatic mode:
+
+```bash
+copilot -p "/settings experimental true"
+copilot -p "/settings experimental false"
+```
+
+Use `/settings` to inspect the exact setting name and available individual
+flags. See the [Copilot CLI settings announcement](https://github.blog/changelog/2026-06-11-copilot-cli-configure-everything-from-one-place-with-settings/).
+
 ---

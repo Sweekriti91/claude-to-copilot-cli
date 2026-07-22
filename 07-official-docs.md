@@ -8,6 +8,7 @@
 - **CLI command reference** — https://docs.github.com/en/copilot/reference/copilot-cli/github-copilot-cli-command-reference
 - **Product page** — https://github.com/features/copilot/cli/
 - **Open-source repo + release notes** — https://github.com/github/copilot-cli (changelog: `changelog.md`)
+- **CLI settings announcement** — https://github.blog/changelog/2026-06-11-copilot-cli-configure-everything-from-one-place-with-settings/
 - In-CLI help: `copilot help` topics — `config`, `permissions`, `environment`, `logging`, `providers`
 
 ---
