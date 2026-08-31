@@ -12,16 +12,19 @@
 | Jun 10, 2026 | **Dedicated `/security-review` command** — terminal AI security scan (XSS, SSRF, crypto…) | https://github.blog/changelog/2026-06-10-dedicated-security-review-command-now-available-in-copilot-cli/ |
 | Jun 10, 2026 | **Real code intelligence via language servers (LSP)** — go-to-def / find-refs for 14 languages | https://github.blog/ai-and-ml/github-copilot/give-github-copilot-cli-real-code-intelligence-with-language-servers/ |
 | Jun 23, 2026 | **New terminal interface GA** — tabbed nav (Issues/PRs/Gists), in-session MCP/skills/plugin management, accessibility | https://github.blog/changelog/2026-06-23-copilot-cli-new-terminal-interface-is-generally-available/ |
+| Jul 1, 2026 | **Auto model selection becomes task-aware** — routes by task complexity, model health, availability, plan, and policy | https://github.blog/changelog/2026-07-01-copilot-cli-auto-model-selection-routes-based-on-task/ |
 
 *(Foundational, pre-window: Sep 25, 2025 public preview — https://github.blog/changelog/2025-09-25-github-copilot-cli-is-now-in-public-preview/)*
 
 ### Recent release-stream highlights
 
-- **1.0.71** — autopilot turn timeout fix, refreshed subagent picker state, memory refresh after long sessions, live MCP tool-list refresh, canvas support, plan-mode write blocking, voice device persistence.
-- **1.0.70** — GPT-5.6 support, `/sandbox` flags, `/refine`, repo-local settings flags, `/mcp list`, `/plugin list`, and model-picker updates.
-- **1.0.69** — `/plugins`, `/mcp list`, `/plugin list`, `/worktree`, `/move`, `/rubber-duck`, and experimental auto-allow-all gating.
+- **1.0.82 (Aug 29)** — safer `/worktree` and `/move` transitions, expandable plan approval cards, and clearer authentication failures.
+- **1.0.81 (Aug 27)** — `copilot app`, `defaultMode` and `defaultPermissionMode`, adaptive Auto model selection during a conversation, startup session recovery, plugin update discovery, Gemini 3.7 Flash, and per-agent usage metrics.
+- **1.0.79 (Aug 10)** — enterprise `allow-auto-only` policy, `--plan --mode autopilot`, multi-session management, `/sandbox policy`, queued prompts, and `/app` deep-link fixes.
+- **1.0.78 (Aug 3)** — `/permissions`, the experimental Assisted approval safety judge (then labeled `/allow-all auto`), tool-duration display, sandbox bypass prompts, and `auto` model shell completion.
+- **1.0.76 (Jul 29)** — restored modes on resume, experimental Sessions sidebar, sticky Autopilot, model changes while a turn is running, and stronger managed sandbox controls.
 
-**Feb–May gap note:** after the Feb 25 GA, Mar–May were mostly incremental releases (every few days) rather than headline posts. For the complete list, pull live:
+**Release-note cutoff:** August 29, 2026 (1.0.82). For the complete live list:
 
 - **GitHub Changelog — Copilot label:** https://github.blog/changelog/label/copilot/
 - **Copilot CLI release notes:** https://github.com/github/copilot-cli/blob/main/changelog.md

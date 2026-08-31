@@ -10,23 +10,24 @@
 | 🟢 | Pipe stdin | `cat f \| claude -p "q"` | `cat f \| copilot -p "q"` |
 | 🟢 | Continue most recent | `claude -c` / `--continue` | `copilot --continue` / `-c` |
 | 🟡 | Resume by id/name | `claude -r "<id>" "q"` | `copilot --resume` (picker) / `/resume` |
-| 🟢 | Choose model | `claude --model opus` | `copilot --model <model>` |
+| 🟢 | Choose model | `claude --model opus` | `copilot --model <model>`; use `--model auto` for task-aware routing |
 | 🟢 | Run as a named agent | `claude --agent my-agent` | `copilot --agent=my-agent -p "..."` |
 | 🟡 | Define agents inline | `claude --agents '{...}'` | define file(s) in `.github/agents/*.md` |
 | 🟡 | Allow specific tools (no prompt) | `claude --allowedTools "Bash(git log *)" "Read"` | `copilot --allow-tool '<tool>'` (repeatable) |
 | 🟡 | Deny specific tools | `--disallowedTools ...` | `copilot --deny-tool '<tool>'` |
-| 🟡 | Allow everything (dangerous) | `claude --dangerously-skip-permissions` | `copilot --allow-all-tools` (or `--allow-all` / `--yolo`) |
-| 🟡 | Permission / plan mode | `--permission-mode plan` | Plan/Autopilot via Shift+Tab |
+| 🟡 | Allow everything (dangerous) | `claude --dangerously-skip-permissions` | `copilot --allow-all` / `--yolo` (tools + paths + URLs) |
+| 🟡 | Agent/session mode | plan mode | `--mode interactive\|plan\|autopilot`, `--plan`, or `--autopilot` |
+| 🟡 | Classifier-assisted permissions | Claude Auto mode | `--experimental --assisted-approval`; then `/permissions` in-session |
 | 🟢 | Add working directory | `claude --add-dir ../lib` | `copilot --add-dir <dir>` / `/add-dir` |
 | 🔴 | Extra system prompt | `--append-system-prompt "..."` | custom instructions (AGENTS.md / copilot-instructions.md) |
 | 🟡 | MCP config | `--mcp-config <file>` | `~/.copilot/mcp-config.json`; `copilot mcp` / `/mcp add` |
-| 🟡 | Enable experimental features | (n/a) | `copilot --experimental` / `/experimental on` |
+| 🟡 | Enable experimental features | `--enable-auto-mode` for Claude Auto | `copilot --experimental` / `/settings experimental true` |
 | 🟡 | Allow / deny URLs | (n/a) | `copilot --allow-url` / `--deny-url` |
 | 🟡 | Local sandbox toggle | (n/a) | `copilot --sandbox` / `--no-sandbox` |
 | 🟢 | Cloud / web session | `claude --cloud "task"` | `copilot --cloud` |
 | 🟢 | Update | `claude update` | `copilot update` |
 | 🟡 | Version | `claude --version` | `copilot version` |
 
-**Autonomy spectrum:** Claude `plan` → default → `--dangerously-skip-permissions` ≈ Copilot plan → autopilot → `--allow-all`/`--yolo` (+ sandbox, `--experimental` for fast-moving features).
+**Do not put these on one spectrum:** Copilot’s session mode (Interactive/Plan/Autopilot), permission mode (Manual/Assisted/Allow all), and model selection (specific model/Auto) are independent controls.
 
 ---
