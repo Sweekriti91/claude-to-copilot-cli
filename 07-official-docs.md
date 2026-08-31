@@ -7,9 +7,13 @@
 - **Installing Copilot CLI** — https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli
 - **CLI reference index** — https://docs.github.com/en/copilot/reference/copilot-cli-reference
 - **CLI command reference** — https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-command-reference
+- **Autopilot mode** — https://docs.github.com/en/copilot/concepts/agents/copilot-cli/autopilot
+- **Auto model selection** — https://docs.github.com/en/copilot/concepts/models/auto-model-selection
+- **GitHub Copilot app sessions** — https://docs.github.com/en/copilot/how-tos/github-copilot-app/agent-sessions
+- **Claude Code Auto mode** — https://claude.com/blog/auto-mode
 - **Product page** — https://github.com/features/copilot/cli/
 - **Open-source repo + release notes** — https://github.com/github/copilot-cli (changelog: `changelog.md`)
 - **CLI settings announcement** — https://github.blog/changelog/2026-06-11-copilot-cli-configure-everything-from-one-place-with-settings/
-- In-CLI help: `copilot help` topics — `config`, `permissions`, `environment`, `logging`, `providers`
+- In-CLI help: `copilot help` topics — `config`, `permissions`, `environment`, `logging`, `providers`, `sandbox`
 
 ---

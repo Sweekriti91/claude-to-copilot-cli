@@ -17,7 +17,7 @@ git diff | copilot -p "review this diff for security issues"
 copilot -p "generate release notes" < commits.txt
 
 # 4. Unattended run (full trust)
-copilot -p "apply the migration and run tests" --allow-all-tools
+copilot -p "apply the migration and run tests" --allow-all
 
 # 5. Granular tool trust
 copilot -p "clean up branches" \
@@ -27,15 +27,20 @@ copilot -p "clean up branches" \
 # 6. Pick a model per step
 copilot -p "draft the refactor" --model claude-sonnet-5
 copilot -p "final review pass" --model gpt-5.6
+copilot -p "route this task automatically" --model auto
 
-# 7. Run as a named custom agent
+# 7. Let Autopilot carry a task through multiple model turns
+copilot --autopilot --allow-all --max-autopilot-continues 10 \
+  -p "apply the migration, run tests, and summarize the result"
+
+# 8. Run as a named custom agent
 copilot --agent=reviewer -p "review the diff on this branch"
 
-# 8. Continue / resume a session
+# 9. Continue / resume a session
 copilot --continue
 copilot --resume
 
-# 9. Add extra working directories
+# 10. Add extra working directories
 copilot --add-dir ../shared-lib --add-dir ../protos
 ```
 
@@ -381,7 +386,7 @@ flags can be combined with it.
 
 | Flag | What it does | Headless note |
 | --- | --- | --- |
-| `--model <model>` | Select model | Best to pin in automation |
+| `--model <model>` | Select a specific model or `auto` | Pin for repeatability; use `auto` for task-aware routing |
 | `--agent <agent>` | Use a named custom agent | Good for specialized scripted flows |
 | `--context <default\|long_context>` | Override context window tier | Per-run override |
 | `--effort <level>` / `--reasoning-effort <level>` | Set reasoning effort | Supports `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, `max` |
@@ -400,6 +405,7 @@ flags can be combined with it.
 | --- | --- | --- |
 | `--allow-all` | Allow all tools, all paths, and all URLs | Same as `--yolo` |
 | `--yolo` | Same as `--allow-all` | Fastest but broadest |
+| `--assisted-approval` | Let the safety judge approve low-risk tool calls | Requires experimental features; safer than blanket allow-all |
 | `--allow-all-tools` | Auto-approve all tools | Often needed for unattended runs |
 | `--allow-tool[=tools...]` | Approve specific tools | Best practice for least privilege |
 | `--deny-tool[=tools...]` | Deny specific tools | Deny wins over allow |

@@ -12,8 +12,8 @@ cat error.log | copilot -p "explain the root cause and suggest a fix"
 git diff | copilot -p "review this diff for security issues"
 copilot -p "generate release notes" < commits.txt
 
-# 4. Unattended pipeline step (trust all tools) — use inside sandbox/CI
-copilot -p "apply the migration and run tests" --allow-all-tools
+# 4. Unattended pipeline step (full trust) — use inside sandbox/CI
+copilot -p "apply the migration and run tests" --allow-all
 
 # 5. Granular tool trust instead of full bypass
 copilot -p "clean up branches" --allow-tool 'shell(git *)' --deny-tool 'shell(git push *)'
@@ -21,6 +21,7 @@ copilot -p "clean up branches" --allow-tool 'shell(git *)' --deny-tool 'shell(gi
 # 6. Pick a model per step (cost tuning)
 copilot -p "draft the refactor" --model claude-sonnet-5
 copilot -p "final review pass"  --model gpt-5.6
+copilot -p "route this task automatically" --model auto
 
 # 7. Run as a named custom agent
 copilot --agent=reviewer -p "review the diff on this branch"
